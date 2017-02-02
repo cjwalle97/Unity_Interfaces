@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ChaseState : IEnemyState
 {
     private readonly StatePatternEnemy enemy;
-    private float searchTimer;
 
     public ChaseState(StatePatternEnemy statePatternEnemy)
     {
@@ -23,7 +23,7 @@ public class ChaseState : IEnemyState
 
     public void ToPatrolState()
     {
-
+        
     }
 
     public void ToAlertState()
@@ -53,6 +53,6 @@ public class ChaseState : IEnemyState
     {
         enemy.meshRendererFlag.material.color = Color.red;
         enemy.navMeshAgent.destination = enemy.chaseTarget.position;
-
+        enemy.navMeshAgent.Resume();
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AlertState : IEnemyState
 {
@@ -41,7 +42,7 @@ public class AlertState : IEnemyState
     private void Look()
     {
         RaycastHit hit;
-        if(Physics.Raycast(enemy.eyes.transform.position, enemy.eyes.transform.forward,out hit, enemy.sightRange) && hit.collider.CompareTag("player"))
+        if(Physics.Raycast(enemy.eyes.transform.position, enemy.eyes.transform.forward, out hit, enemy.sightRange) && hit.collider.CompareTag("Player"))
         {
             enemy.chaseTarget = hit.transform;
             ToChaseState();

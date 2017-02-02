@@ -29,7 +29,8 @@ public class StatePatternEnemy : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         currentState = patrolState;
 	}
 	
